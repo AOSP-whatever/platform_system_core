@@ -34,6 +34,7 @@ init_common_sources = [
     "subcontext.proto",
     "tokenizer.cpp",
     "util.cpp",
+    "vendor_init.cpp",
 ]
 init_device_sources = [
     "block_dev_initializer.cpp",
@@ -181,6 +182,12 @@ cc_library_static {
                 "libbinder",
                 "libutils",
             ],
+        },
+    },
+
+    product_variables: {
+        target_init_vendor_lib: {
+            whole_static_libs: ["%s"],
         },
     },
 }
